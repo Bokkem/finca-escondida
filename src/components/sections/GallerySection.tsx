@@ -130,22 +130,25 @@ export default function GallerySection() {
 
       {/* Mobile: simple 2-column grid */}
       <div className="md:hidden py-24 px-6 bg-[#F2F0EB]">
-        <div className="mb-12">
+        <div className="mb-10 px-6">
           <p className="text-muted text-sm tracking-[0.3em] uppercase mb-3">Photography</p>
           <RevealText as="h2" className="font-heading text-5xl text-olive" delay={0.1}>
             Every frame, a memory
           </RevealText>
         </div>
-        <div className="grid grid-cols-2 gap-3" role="list">
+
+        {/* Swipeable carousel */}
+        <div
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-4 scrollbar-hide"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          role="list"
+          aria-label="Gallery photos"
+        >
           {galleryImages.map((image, i) => (
-            <motion.button
+            <button
               key={image.src}
               onClick={() => setLightboxIndex(i)}
-              className="relative overflow-hidden rounded-xl aspect-[3/4] focus-visible:ring-2 focus-visible:ring-olive focus-visible:outline-none"
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: duration.meso, ease: ease.enter, delay: i * stagger.tight }}
+              className="relative shrink-0 w-[78vw] aspect-[3/4] rounded-2xl overflow-hidden snap-center focus-visible:ring-2 focus-visible:ring-olive focus-visible:outline-none"
               aria-label={`View photo: ${image.alt}`}
               role="listitem"
             >
@@ -154,9 +157,16 @@ export default function GallerySection() {
                 alt={image.alt}
                 fill
                 className="object-cover"
-                sizes="50vw"
+                sizes="78vw"
               />
-            </motion.button>
+            </button>
+          ))}
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-1.5 mt-5 px-6" aria-hidden="true">
+          {galleryImages.map((_, i) => (
+            <div key={i} className="w-1 h-1 rounded-full bg-muted/30" />
           ))}
         </div>
       </div>
