@@ -69,7 +69,7 @@ export default function HeroSection() {
         >
           <MagneticButton
             onClick={scrollToBooking}
-            className="px-10 py-4 border border-cream/60 text-cream text-sm tracking-widest uppercase hover:bg-cream hover:text-olive transition-all duration-300 focus-visible:outline-2 focus-visible:outline-cream focus-visible:outline-offset-2"
+            className="px-10 py-4 border border-cream/60 text-cream text-sm tracking-widest uppercase rounded-full hover:bg-cream hover:text-olive transition-all duration-300 focus-visible:outline-2 focus-visible:outline-cream focus-visible:outline-offset-2"
             aria-label="Beschikbaarheid controleren en reserveren"
           >
             Check Availability
