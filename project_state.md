@@ -11,7 +11,8 @@ Potentiele klanten laten zien wat Rideko kan bouwen op het gebied van premium we
 - React 19
 - Tailwind v4 (CSS-first, geen tailwind.config.ts, configuratie via @theme in globals.css)
 - Motion (`motion/react`) voor animaties — NIET framer-motion
-- Lenis voor smooth scroll
+- Lenis voor smooth scroll (instantie exposed via LenisContext in SmoothScrollProvider)
+- Embla Carousel 8.6.0 voor mobiele gallery
 - shadcn/ui voor basis UI-componenten
 - Lucide React voor iconen
 - Geen backend, geen Supabase, geen Firebase — puur frontend met mock data
@@ -26,24 +27,32 @@ Potentiele klanten laten zien wat Rideko kan bouwen op het gebied van premium we
 
 ## Structuur
 Onepager met deze secties (top naar bottom):
-1. Header (floating, scroll-aware backdrop)
-2. Hero (cinematic parallax, Ibiza luchtfoto)
+1. Header (floating, scroll-aware backdrop blur, logo = instant scroll-to-top)
+2. Hero (cinematic parallax, Ibiza luchtfoto, `100dvh`)
 3. Features (bento grid, 6 villa-highlights)
-4. Gallery (fotogrid + fullscreen lightbox)
+4. Gallery (horizontale scroll op desktop, Embla carousel op mobiel + fullscreen lightbox met swipe)
 5. Amenities (icon cards)
 6. Booking (3-staps wizard, mock kalender, live prijsberekening)
 7. Location (OpenStreetMap, San Carlos Ibiza)
-8. Footer (Rideko Webdesign credit + back-to-top logo)
-9. BackToTop knop (floating, verschijnt na 400px scroll)
+8. Footer (Rideko Webdesign credit + logo = instant scroll-to-top)
+9. BackToTop knop (floating, verschijnt na 400px scroll, instant terug naar boven)
 
 ## Bestandspaden (key files)
 - `src/app/page.tsx` — pagina-assembly
-- `src/app/layout.tsx` — fonts, metadata, Lenis provider
-- `src/app/globals.css` — Tailwind v4 @theme tokens
+- `src/app/layout.tsx` — fonts, metadata, Lenis provider, Preloader, CustomCursor, GrainOverlay
+- `src/app/globals.css` — Tailwind v4 @theme tokens + cross-browser fixes
 - `src/lib/mock-data.ts` — alle villa-data, afbeeldingen, prijzen
 - `src/lib/utils.ts` — cn(), prijsberekening, datumlogica
 - `src/lib/motion-tokens.ts` — gedeelde easing/duration/stagger waarden
 - `src/types/index.ts` — TypeScript interfaces
+- `src/components/providers/SmoothScrollProvider.tsx` — Lenis + LenisContext (exporteert `useLenis` hook)
+- `src/components/ui/MagneticButton.tsx` — magnetisch knop-effect via cursor tracking
+- `src/components/ui/RevealText.tsx` — woord-voor-woord clip-path reveal animatie
+- `src/components/ui/GrainOverlay.tsx` — subtiele SVG ruis-overlay
+- `src/components/ui/Preloader.tsx` — intro-animatie bij eerste load
+- `src/components/ui/CustomCursor.tsx` — custom cursor (desktop only)
+- `src/components/ui/BackToTop.tsx` — floating back-to-top knop met glow hover
+- `src/components/ui/GalleryLightbox.tsx` — fullscreen lightbox met keyboard + touch swipe nav
 - `public/images/` — 9 WebP afbeeldingen (hero 1920x1080, rest 1200x800)
 
 ## Deploy
@@ -60,4 +69,6 @@ Engels (UK English) — toon: warm, onderkoel, Brits luxe vakantiegevoel
 - Motion package: altijd importeren uit `motion/react`, nooit uit `framer-motion`
 - Afbeeldingen: altijd `next/image` met `alt` tekst, nooit `<img>`
 - Alle afbeeldingen zijn WebP, conversie via ImageMagick + cwebp (sharp werkt niet op dit systeem)
-- `metadataBase` is nog niet ingesteld (kleine warning bij build) — instellen zodra productiedomein bekend is
+- Scroll-to-top: altijd via `lenis?.scrollTo(0, { immediate: true })` — nooit `window.scrollTo` (Lenis onderschept dat)
+- Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk)
+- `metadataBase` nog niet ingesteld (kleine build-warning) — instellen zodra productiedomein bekend is
