@@ -10,7 +10,11 @@ export default function BackToTop() {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    const handler = () => setVisible(window.scrollY > 400);
+    const handler = () => {
+      const scrolled = window.scrollY > 400;
+      const nearBottom = window.scrollY + window.innerHeight >= document.body.scrollHeight - 80;
+      setVisible(scrolled && !nearBottom);
+    };
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
