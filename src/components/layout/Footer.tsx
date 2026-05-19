@@ -1,13 +1,12 @@
 "use client";
 
+import { useLenis } from "@/components/providers/SmoothScrollProvider";
+
 export default function Footer() {
+  const lenis = useLenis();
   const year = new Date().getFullYear();
 
-  const scrollToTop = () => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
+  const scrollToTop = () => lenis?.scrollTo(0, { immediate: true });
 
   return (
     <footer className="bg-[#1A1A1A] text-cream/40 py-12 px-6" role="contentinfo">

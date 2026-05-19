@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { useLenis } from "@/components/providers/SmoothScrollProvider";
 
 export default function Header() {
+  const lenis = useLenis();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -34,7 +36,7 @@ export default function Header() {
         style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "blur(0px)" }}
       >
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => lenis?.scrollTo(0, { immediate: true })}
           className="font-heading text-xl tracking-widest uppercase text-olive"
           aria-label="Finca Escondida, back to top"
         >

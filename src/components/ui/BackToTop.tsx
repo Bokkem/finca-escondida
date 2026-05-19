@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUp } from "lucide-react";
 import { ease, duration } from "@/lib/motion-tokens";
+import { useLenis } from "@/components/providers/SmoothScrollProvider";
 
 export default function BackToTop() {
+  const lenis = useLenis();
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -20,7 +22,7 @@ export default function BackToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    lenis?.scrollTo(0, { immediate: true });
   };
 
   return (
