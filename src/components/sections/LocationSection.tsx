@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { MapPin } from "lucide-react";
 import { ease, duration } from "@/lib/motion-tokens";
 
 export default function LocationSection() {
@@ -37,17 +36,21 @@ export default function LocationSection() {
         </motion.div>
 
         <motion.div
-          className="aspect-video rounded-2xl overflow-hidden bg-olive-light/30 flex items-center justify-center"
+          className="aspect-video rounded-2xl overflow-hidden"
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: duration.macro, ease: ease.enter, delay: 0.15 }}
-          aria-label="Map view, Finca Escondida location in Ibiza"
         >
-          <div className="text-center">
-            <MapPin size={48} className="text-cream/20 mx-auto mb-3" aria-hidden="true" />
-            <p className="text-cream/30 text-sm tracking-widest uppercase">San Carlos, Ibiza</p>
-          </div>
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=1.1%2C38.8%2C1.9%2C39.2&layer=mapnik&marker=39.036%2C1.536"
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: "sepia(30%) saturate(80%) brightness(90%)" }}
+            loading="lazy"
+            title="Finca Escondida location — San Carlos, Ibiza"
+            aria-label="Map showing Finca Escondida location in San Carlos, Ibiza"
+          />
         </motion.div>
       </div>
     </section>

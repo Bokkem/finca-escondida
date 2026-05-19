@@ -6,6 +6,7 @@ import AmenitiesSection from "@/components/sections/AmenitiesSection";
 import BookingSection from "@/components/sections/BookingSection";
 import LocationSection from "@/components/sections/LocationSection";
 import Footer from "@/components/layout/Footer";
+import BackToTop from "@/components/ui/BackToTop";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <BookingSection />
       <LocationSection />
       <Footer />
+      <BackToTop />
     </main>
   );
 }

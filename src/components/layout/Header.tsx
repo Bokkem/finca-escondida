@@ -32,7 +32,7 @@ export default function Header() {
         transition={{ duration: duration.meso, ease: ease.smooth }}
       >
         <button
-          onClick={() => scrollTo("hero")}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="font-heading text-xl tracking-widest uppercase text-olive"
           aria-label="Finca Escondida, back to top"
         >
