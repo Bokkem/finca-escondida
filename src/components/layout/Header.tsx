@@ -31,6 +31,7 @@ export default function Header() {
           borderBottomColor: scrolled ? "rgba(232, 228, 220, 0.8)" : "rgba(232, 228, 220, 0)",
         }}
         transition={{ duration: duration.meso, ease: ease.smooth }}
+        style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "blur(0px)" }}
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

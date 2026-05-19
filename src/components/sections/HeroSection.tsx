@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section ref={ref} id="hero" className="relative h-screen min-h-[640px] overflow-hidden" aria-label="Villa introductie">
+    <section ref={ref} id="hero" className="relative h-[100dvh] min-h-[640px] overflow-hidden" aria-label="Villa introductie">
       <motion.div className="absolute inset-0" style={{ y }}>
         <Image
           src="/images/hero.webp"

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import useEmblaCarousel from "embla-carousel-react";
 import { galleryImages } from "@/lib/mock-data";
 import GalleryLightbox from "@/components/ui/GalleryLightbox";
 import RevealText from "@/components/ui/RevealText";
@@ -41,6 +42,16 @@ export default function GallerySection() {
 
   const x = useTransform(scrollYProgress, [0, 1], [0, -travel]);
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", containScroll: false });
+  const [selectedSlide, setSelectedSlide] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedSlide(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi]);
+
   const handleNext = useCallback(() => {
     setLightboxIndex((i) => (i !== null ? (i + 1) % galleryImages.length : 0));
   }, []);
@@ -57,7 +68,7 @@ export default function GallerySection() {
       aria-label="Photo gallery"
     >
       {/* Desktop: sticky horizontal scroll */}
-      <div className="hidden md:block sticky top-0 h-screen overflow-hidden bg-[#F2F0EB]">
+      <div className="hidden md:block sticky top-0 h-[100dvh] overflow-hidden bg-[#F2F0EB]">
 
         {/* Horizontal photo track — heading is first card */}
         <motion.div
@@ -128,8 +139,8 @@ export default function GallerySection() {
         </motion.div>
       </div>
 
-      {/* Mobile: simple 2-column grid */}
-      <div className="md:hidden py-24 px-6 bg-[#F2F0EB]">
+      {/* Mobile: Embla Carousel */}
+      <div className="md:hidden py-24 bg-[#F2F0EB]">
         <div className="mb-10 px-6">
           <p className="text-muted text-sm tracking-[0.3em] uppercase mb-3">Photography</p>
           <RevealText as="h2" className="font-heading text-5xl text-olive" delay={0.1}>
@@ -137,36 +148,40 @@ export default function GallerySection() {
           </RevealText>
         </div>
 
-        {/* Swipeable carousel */}
-        <div
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-4 scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          role="list"
-          aria-label="Gallery photos"
-        >
-          {galleryImages.map((image, i) => (
-            <button
-              key={image.src}
-              onClick={() => setLightboxIndex(i)}
-              className="relative shrink-0 w-[78vw] aspect-[3/4] rounded-2xl overflow-hidden snap-center focus-visible:ring-2 focus-visible:ring-olive focus-visible:outline-none"
-              aria-label={`View photo: ${image.alt}`}
-              role="listitem"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover"
-                sizes="78vw"
-              />
-            </button>
-          ))}
+        <div ref={emblaRef} className="overflow-hidden" aria-label="Gallery photos">
+          <div className="flex -ml-3">
+            {galleryImages.map((image, i) => (
+              <div key={image.src} className="relative shrink-0 pl-3" style={{ flex: "0 0 82vw" }}>
+                <button
+                  onClick={() => setLightboxIndex(i)}
+                  className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden focus-visible:ring-2 focus-visible:ring-olive focus-visible:outline-none block"
+                  aria-label={`View photo: ${image.alt}`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="82vw"
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-1.5 mt-5 px-6" aria-hidden="true">
+        {/* Animated pill dots */}
+        <div className="flex justify-center items-center gap-1.5 mt-6 px-6" aria-hidden="true">
           {galleryImages.map((_, i) => (
-            <div key={i} className="w-1 h-1 rounded-full bg-muted/30" />
+            <motion.div
+              key={i}
+              className="h-[3px] rounded-full bg-muted"
+              animate={{
+                width: i === selectedSlide ? 20 : 4,
+                opacity: i === selectedSlide ? 0.75 : 0.2,
+              }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            />
           ))}
         </div>
       </div>
