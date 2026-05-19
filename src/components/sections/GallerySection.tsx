@@ -59,43 +59,41 @@ export default function GallerySection() {
       {/* Desktop: sticky horizontal scroll */}
       <div className="hidden md:block sticky top-0 h-screen overflow-hidden bg-[#F2F0EB]">
 
-        {/* Section header — top left, stays fixed */}
-        <div className="absolute top-0 left-0 z-10 px-16 pt-20 pointer-events-none">
-          <motion.p
-            className="text-muted text-sm tracking-[0.3em] uppercase mb-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: duration.macro, ease: ease.enter, delay: 0.1 }}
-          >
-            Photography
-          </motion.p>
-          <RevealText
-            as="h2"
-            className="font-heading text-5xl md:text-6xl text-olive"
-            delay={0.15}
-          >
-            Every frame, a memory
-          </RevealText>
-        </div>
-
-        {/* Scroll hint — bottom left */}
-        <motion.p
-          className="absolute bottom-10 left-16 text-xs tracking-[0.25em] uppercase text-muted/50 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          aria-hidden="true"
-        >
-          Scroll to explore
-        </motion.p>
-
-        {/* Horizontal photo track */}
+        {/* Horizontal photo track — heading is first card */}
         <motion.div
           ref={trackRef}
           className="absolute top-0 left-0 h-full flex items-center gap-5 pl-[10vw] pr-[10vw]"
           style={{ x }}
           aria-label="Gallery photos"
         >
+          {/* Title card — first item in track */}
+          <div className="shrink-0 w-[30vw] flex flex-col justify-center gap-4 pr-8">
+            <motion.p
+              className="text-muted text-sm tracking-[0.3em] uppercase"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: duration.macro, ease: ease.enter, delay: 0.1 }}
+            >
+              Photography
+            </motion.p>
+            <RevealText
+              as="h2"
+              className="font-heading text-5xl md:text-6xl text-olive leading-tight"
+              delay={0.15}
+            >
+              Every frame, a memory
+            </RevealText>
+            <motion.p
+              className="text-xs tracking-[0.25em] uppercase text-muted/50 mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 1 }}
+              aria-hidden="true"
+            >
+              Scroll to explore
+            </motion.p>
+          </div>
+
           {galleryImages.map((image, i) => (
             <motion.button
               key={image.src}
