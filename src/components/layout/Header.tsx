@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,13 +57,23 @@ export default function Header() {
           ))}
         </nav>
 
-        <button
-          onClick={() => scrollTo("booking")}
-          className="hidden md:inline-flex items-center px-6 py-2.5 bg-olive text-cream text-sm tracking-widest uppercase rounded-full hover:bg-olive-light transition-colors duration-200"
-          aria-label="Reservering maken"
-        >
-          Reserve
-        </button>
+        <div className="hidden md:flex items-center gap-3">
+          <MagneticButton
+            onClick={() => scrollTo("booking")}
+            className="hidden md:inline-flex items-center px-6 py-2.5 border border-olive/40 text-olive text-sm tracking-widest uppercase rounded-full hover:border-olive hover:bg-olive/5 transition-colors duration-200"
+            aria-label="Neem contact op"
+          >
+            Get in Touch
+          </MagneticButton>
+
+          <MagneticButton
+            onClick={() => scrollTo("booking")}
+            className="hidden md:inline-flex items-center px-6 py-2.5 bg-olive text-cream text-sm tracking-widest uppercase rounded-full hover:bg-olive-light transition-colors duration-200"
+            aria-label="Reservering maken"
+          >
+            Reserve
+          </MagneticButton>
+        </div>
 
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
@@ -89,14 +100,15 @@ export default function Header() {
             aria-label="Navigatiemenu"
           >
             {[
-              { label: "The Villa", id: "features" },
-              { label: "Gallery", id: "gallery" },
-              { label: "Amenities", id: "amenities" },
-              { label: "Location", id: "location" },
-              { label: "Reserve", id: "booking" },
+              { label: "The Villa", id: "features", key: "features" },
+              { label: "Gallery", id: "gallery", key: "gallery" },
+              { label: "Amenities", id: "amenities", key: "amenities" },
+              { label: "Location", id: "location", key: "location" },
+              { label: "Get in Touch", id: "booking", key: "booking-contact" },
+              { label: "Reserve", id: "booking", key: "booking-reserve" },
             ].map((item, i) => (
               <motion.button
-                key={item.id}
+                key={item.key}
                 onClick={() => scrollTo(item.id)}
                 className="font-heading text-4xl text-olive hover:text-olive-light transition-colors"
                 initial={{ opacity: 0, y: 20 }}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
@@ -61,16 +62,33 @@ export default function HeroSection() {
           Seven bedrooms. A 22-metre infinity pool above the sea. Total seclusion in the hills of northern Ibiza.
         </motion.p>
 
-        <motion.button
-          onClick={scrollToBooking}
-          className="px-10 py-4 border border-cream/60 text-cream text-sm tracking-widest uppercase hover:bg-cream hover:text-olive transition-all duration-300 focus-visible:outline-2 focus-visible:outline-cream focus-visible:outline-offset-2"
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: duration.macro, ease: ease.enter, delay: 0.65 }}
-          aria-label="Beschikbaarheid controleren en reserveren"
         >
-          Check Availability
-        </motion.button>
+          <MagneticButton
+            onClick={scrollToBooking}
+            className="px-10 py-4 border border-cream/60 text-cream text-sm tracking-widest uppercase hover:bg-cream hover:text-olive transition-all duration-300 focus-visible:outline-2 focus-visible:outline-cream focus-visible:outline-offset-2"
+            aria-label="Beschikbaarheid controleren en reserveren"
+          >
+            Check Availability
+          </MagneticButton>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: duration.macro, ease: ease.enter, delay: 0.8 }}
+        >
+          <MagneticButton
+            onClick={scrollToBooking}
+            className="px-10 py-4 text-cream/70 text-sm tracking-widest uppercase hover:text-cream transition-colors duration-300 underline underline-offset-4"
+            aria-label="Neem contact op"
+          >
+            Get in Touch
+          </MagneticButton>
+        </motion.div>
       </motion.div>
 
       <motion.div
