@@ -20,7 +20,7 @@ export default function HeroSection() {
       <motion.div className="absolute inset-0" style={{ y }}>
         <Image
           src="/images/hero.webp"
-          alt="Finca Escondida — infinity pool met uitzicht op de Middellandse Zee bij zonsondergang"
+          alt="Finca Escondida infinity pool overlooking the Mediterranean Sea at sunset"
           fill
           className="object-cover"
           priority
@@ -58,7 +58,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: duration.macro, ease: ease.enter, delay: 0.5 }}
         >
-          Seven bedrooms. An infinity pool above the sea. Complete privacy in the hills of northern Ibiza.
+          Seven bedrooms. A 22-metre infinity pool above the sea. Total seclusion in the hills of northern Ibiza.
         </motion.p>
 
         <motion.button

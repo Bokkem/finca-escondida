@@ -19,13 +19,13 @@ export default function LocationSection() {
             Northern<br /><em className="italic">Ibiza</em>
           </h2>
           <p className="text-cream/70 text-lg leading-relaxed mb-10 max-w-md">
-            Nestled in the secluded hills of San Carlos, Finca Escondida is 35 minutes from Ibiza Airport and 8 minutes from the pristine coves of the north.
+            Nestled in the secluded hills of San Carlos, Finca Escondida is 35 minutes from Ibiza Airport and just eight minutes from the pristine coves of the north coast.
           </p>
           <dl className="space-y-4">
             {[
               { label: "Address", value: "San Carlos, Ibiza, Spain" },
-              { label: "Airport", value: "35 min — Ibiza Airport (IBZ)" },
-              { label: "Nearest beach", value: "8 min — Cala Mastella" },
+              { label: "Airport", value: "35 min, Ibiza Airport (IBZ)" },
+              { label: "Nearest beach", value: "8 min, Cala Mastella" },
               { label: "Ibiza Town", value: "25 min" },
             ].map(({ label, value }) => (
               <div key={label} className="flex justify-between border-b border-cream/10 pb-4">
@@ -42,7 +42,7 @@ export default function LocationSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: duration.macro, ease: ease.enter, delay: 0.15 }}
-          aria-label="Kaartweergave — Finca Escondida locatie in Ibiza"
+          aria-label="Map view, Finca Escondida location in Ibiza"
         >
           <div className="text-center">
             <MapPin size={48} className="text-cream/20 mx-auto mb-3" aria-hidden="true" />

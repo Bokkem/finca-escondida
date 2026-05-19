@@ -124,7 +124,7 @@ export default function BookingCalendar({ checkIn, checkOut, onChange }: Booking
       </div>
 
       <p className="mt-4 text-xs text-muted/60 text-center">
-        Minimum {villaSettings.minNights} nights stay
+        Minimum {villaSettings.minNights}-night stay
       </p>
     </div>
   );

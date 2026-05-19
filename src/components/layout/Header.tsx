@@ -34,7 +34,7 @@ export default function Header() {
         <button
           onClick={() => scrollTo("hero")}
           className="font-heading text-xl tracking-widest uppercase text-olive"
-          aria-label="Finca Escondida — terug naar boven"
+          aria-label="Finca Escondida, back to top"
         >
           Finca Escondida
         </button>

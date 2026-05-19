@@ -53,7 +53,7 @@ export default function ReservationWizard() {
         </div>
         <h3 className="font-heading text-3xl text-olive mb-3">Enquiry Received</h3>
         <p className="text-muted max-w-sm mx-auto leading-relaxed">
-          Thank you, {form.firstName}. Our team will contact you within 24 hours to confirm your reservation at Finca Escondida.
+          Thank you, {form.firstName}. Our team will be in touch within 24 hours to confirm your reservation at Finca Escondida.
         </p>
       </motion.div>
     );
@@ -164,7 +164,7 @@ export default function ReservationWizard() {
                       </div>
                       <span className="text-sm text-text">{service.label}</span>
                     </div>
-                    <span className="text-sm text-muted">{formatPrice(service.price)}/night</span>
+                    <span className="text-sm text-muted">{formatPrice(service.price)} per night</span>
                     <input
                       id={inputId}
                       type="checkbox"
@@ -176,7 +176,7 @@ export default function ReservationWizard() {
                           ? [...f.extras, service.id]
                           : f.extras.filter(x => x !== service.id)
                       }))}
-                      aria-label={`${service.label} — ${formatPrice(service.price)} per nacht`}
+                      aria-label={`${service.label}, ${formatPrice(service.price)} per night`}
                     />
                   </label>
                 );
@@ -258,7 +258,7 @@ export default function ReservationWizard() {
                 value={form.specialRequests}
                 onChange={(e) => setForm(f => ({ ...f, specialRequests: e.target.value }))}
                 className="w-full border border-border rounded-xl px-4 py-3 bg-white text-text text-sm focus:outline-none focus:ring-2 focus:ring-olive/30 resize-none"
-                placeholder="Dietary requirements, special occasions, specific needs..."
+                placeholder="Dietary requirements, special occasions or specific requests..."
               />
             </div>
             <div className="flex gap-3">

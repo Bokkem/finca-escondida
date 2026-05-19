@@ -19,12 +19,12 @@ export default function BookingSection() {
             Begin your<br /><em className="italic">escape</em>
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-8 max-w-md">
-            Finca Escondida is available for exclusive hire throughout the year. Our team will confirm availability and personalise your stay within 24 hours.
+            Finca Escondida is available for exclusive hire throughout the year. Our team will confirm availability and tailor your stay within 24 hours.
           </p>
           <dl className="space-y-4">
             {[
-              { label: "Low season", value: "from €1,850 / night" },
-              { label: "High season (Jun — Sep)", value: "from €2,950 / night" },
+              { label: "Low season", value: "from €1,850 per night" },
+              { label: "High season (Jun to Sep)", value: "from €2,950 per night" },
               { label: "Minimum stay", value: "7 nights" },
               { label: "Capacity", value: "Up to 14 guests" },
             ].map(({ label, value }) => (
