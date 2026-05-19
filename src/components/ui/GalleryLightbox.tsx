@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import type { GalleryImage } from "@/types";
 import { ease, duration } from "@/lib/motion-tokens";
 
@@ -16,11 +16,26 @@ interface GalleryLightboxProps {
 }
 
 export default function GalleryLightbox({ images, currentIndex, onClose, onNext, onPrev }: GalleryLightboxProps) {
+  const touchStartX = useRef<number | null>(null);
+
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") onClose();
     if (e.key === "ArrowRight") onNext();
     if (e.key === "ArrowLeft") onPrev();
   }, [onClose, onNext, onPrev]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > 50) {
+      delta < 0 ? onNext() : onPrev();
+    }
+    touchStartX.current = null;
+  }, [onNext, onPrev]);
 
   useEffect(() => {
     if (currentIndex !== null) {
@@ -48,6 +63,8 @@ export default function GalleryLightbox({ images, currentIndex, onClose, onNext,
           aria-modal="true"
           aria-label="Foto weergave"
           onClick={onClose}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <motion.div
             className="relative w-full h-full max-w-6xl max-h-[85vh] mx-4"
