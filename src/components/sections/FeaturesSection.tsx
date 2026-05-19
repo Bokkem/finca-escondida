@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { bentoFeatures } from "@/lib/mock-data";
 import { ease, duration, stagger } from "@/lib/motion-tokens";
 import { cn } from "@/lib/utils";
+import RevealText from "@/components/ui/RevealText";
 
 export default function FeaturesSection() {
   return (
@@ -18,9 +19,9 @@ export default function FeaturesSection() {
           transition={{ duration: duration.macro, ease: ease.enter }}
         >
           <p className="text-muted text-sm tracking-[0.3em] uppercase mb-4">The Experience</p>
-          <h2 className="font-heading text-5xl md:text-7xl text-olive max-w-2xl leading-tight">
-            A world unto<br /><em className="italic">itself</em>
-          </h2>
+          <RevealText as="h2" className="font-heading text-5xl md:text-7xl text-olive max-w-2xl leading-tight" delay={0.1}>
+            A world unto itself
+          </RevealText>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:auto-rows-[320px]">

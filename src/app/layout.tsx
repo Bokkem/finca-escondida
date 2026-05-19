@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import CustomCursor from "@/components/ui/CustomCursor";
+import GrainOverlay from "@/components/ui/GrainOverlay";
+import Preloader from "@/components/ui/Preloader";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -30,6 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${cormorant.variable} ${geist.variable}`}>
       <body>
+        <Preloader />
+        <CustomCursor />
+        <GrainOverlay />
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

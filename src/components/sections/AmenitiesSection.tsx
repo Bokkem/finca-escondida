@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Wifi, Car, Anchor, Shield, Sun, Music } from "lucide-react";
 import { amenities } from "@/lib/mock-data";
 import { ease, duration, stagger } from "@/lib/motion-tokens";
+import RevealText from "@/components/ui/RevealText";
 
 const iconMap: Record<string, React.ReactNode> = {
   wifi: <Wifi size={24} aria-hidden="true" />,
@@ -26,9 +27,9 @@ export default function AmenitiesSection() {
           transition={{ duration: duration.macro, ease: ease.enter }}
         >
           <p className="text-muted text-sm tracking-[0.3em] uppercase mb-4">Services</p>
-          <h2 className="font-heading text-5xl md:text-7xl text-olive max-w-xl leading-tight">
-            Nothing left<br />to <em className="italic">chance</em>
-          </h2>
+          <RevealText as="h2" className="font-heading text-5xl md:text-7xl text-olive max-w-xl leading-tight" delay={0.1}>
+            Nothing left to chance
+          </RevealText>
         </motion.div>
 
         <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">

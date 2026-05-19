@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import ReservationWizard from "@/components/ui/ReservationWizard";
 import { ease, duration } from "@/lib/motion-tokens";
+import RevealText from "@/components/ui/RevealText";
 
 export default function BookingSection() {
   return (
@@ -15,9 +16,9 @@ export default function BookingSection() {
           transition={{ duration: duration.macro, ease: ease.enter }}
         >
           <p className="text-muted text-sm tracking-[0.3em] uppercase mb-4">Reservations</p>
-          <h2 className="font-heading text-5xl md:text-6xl text-olive leading-tight mb-6">
-            Begin your<br /><em className="italic">escape</em>
-          </h2>
+          <RevealText as="h2" className="font-heading text-5xl md:text-6xl text-olive leading-tight mb-6" delay={0.1}>
+            Begin your escape
+          </RevealText>
           <p className="text-muted text-lg leading-relaxed mb-8 max-w-md">
             Finca Escondida is available for exclusive hire throughout the year. Our team will confirm availability and tailor your stay within 24 hours.
           </p>

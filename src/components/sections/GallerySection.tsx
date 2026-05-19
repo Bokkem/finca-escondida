@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import { galleryImages } from "@/lib/mock-data";
 import GalleryLightbox from "@/components/ui/GalleryLightbox";
 import { ease, duration, stagger } from "@/lib/motion-tokens";
+import RevealText from "@/components/ui/RevealText";
 
 export default function GallerySection() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -29,9 +30,9 @@ export default function GallerySection() {
           transition={{ duration: duration.macro, ease: ease.enter }}
         >
           <p className="text-muted text-sm tracking-[0.3em] uppercase mb-4">Photography</p>
-          <h2 className="font-heading text-5xl md:text-7xl text-olive">
-            Every frame,<br /><em className="italic">a memory</em>
-          </h2>
+          <RevealText as="h2" className="font-heading text-5xl md:text-7xl text-olive" delay={0.1}>
+            Every frame, a memory
+          </RevealText>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4" role="list">

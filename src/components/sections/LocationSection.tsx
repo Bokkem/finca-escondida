@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
+import RevealText from "@/components/ui/RevealText";
 
 export default function LocationSection() {
   return (
@@ -14,9 +15,9 @@ export default function LocationSection() {
           transition={{ duration: duration.macro, ease: ease.enter }}
         >
           <p className="text-cream/50 text-sm tracking-[0.3em] uppercase mb-4">Getting Here</p>
-          <h2 className="font-heading text-5xl md:text-6xl leading-tight mb-6">
-            Northern<br /><em className="italic">Ibiza</em>
-          </h2>
+          <RevealText as="h2" className="font-heading text-5xl md:text-6xl leading-tight mb-6" delay={0.1}>
+            Northern Ibiza
+          </RevealText>
           <p className="text-cream/70 text-lg leading-relaxed mb-10 max-w-md">
             Nestled in the secluded hills of San Carlos, Finca Escondida is 35 minutes from Ibiza Airport and just eight minutes from the pristine coves of the north coast.
           </p>
