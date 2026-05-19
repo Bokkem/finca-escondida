@@ -1,0 +1,48 @@
+# UI/UX & Ontwikkelings-Prompt: Exclusieve Droomvilla Website
+
+## Context & Doel
+Bouw een ultra-luxe, conversiegerichte single-property landingpage/applicatie voor de verhuur van één exclusieve, gigantische droomvilla in het topsegment (bijv. *Finca Escondida* op Ibiza of *Villa Miramare* aan de Amalfikust). De website moet de villa als een op zichzelf staand high-end merk presenteren. De focus ligt op het overbrengen van absolute privacy en high-end architectuur, gecombineerd met een vlekkeloze, moderne boekings-UX.
+
+## Technische Stack (Zonder vaste versies)
+- **Framework:** Next.js (App Router, Server & Client Components)
+- **Taal:** React & TypeScript
+- **Styling:** Tailwind CSS
+- **Database & Auth:** Supabase of Firebase (voor realtime kalender-data)
+- **Hosting:** Geoptimaliseerd voor Vercel
+
+---
+
+## Stap 1: Backend & Logica (Superpowers Mode)
+Gebruik je software-engineering capaciteiten om eerst de functionele basis en de realtime beschikbaarheid op te zetten. Er mag geen 'slop' of placeholder-code gebruikt worden voor de logica.
+
+### 1. Database Schema
+Omdat het om één unieke villa gaat, is de databasestructuur gestroomlijnd:
+- **bookings:** `id`, `start_date`, `end_date`, `guest_name`, `guest_email`, `total_price`, `status` ('pending', 'confirmed').
+- **vessel_meta / settings:** (Optioneel) `base_price_per_night`, `high_season_price`.
+
+### 2. Kernfunctionaliteiten
+- **Single-Property Realtime Kalender:** Bouw een interactieve datum-picker (inchecken/uitchecken). Reeds geboekte datums in de `bookings` tabel moeten direct als 'niet beschikbaar' (disabled) worden getoond op de kalender.
+- **Live Prijsberekening:** Bereken live de totale verblijfskosten zodra de gebruiker in- en uitcheckdatums selecteert, rekening houdend met het aantal nachten.
+- **Luxe Boekings-wizard:** Een strak, interactief formulier (bijv. 3 stappen) voor het invoeren van gastgegevens en speciale verzoeken (bijv. privékok, conciërgeservice) dat de boeking direct naar de database wegschrijft.
+
+---
+
+## Stap 2: UI/UX & Esthetiek (Resonant Stark & Light Skeuomorphism)
+Transformeer de interface naar een premium, modern design dat de sfeer van een high-end architectuur-magazine ademt. Voorkom generieke AI-templates.
+
+### 1. Visuele Identiteit & Kleurenpalet
+- **Achtergrond:** Luxe, rustgevend off-white/crème (`bg-[#FAF9F5]`). Absoluut geen hard koud wit of puur zwart.
+- **Accentkleuren:** Diep organisch olijgroen (`#2F3E36`) voor primaire acties (knoppen, actieve datums) en warme zand- of terracottatinten voor subtiele details.
+- **Typografie:** Gebruik een chique Serif-lettertype voor de koppen (zoals *Cormorant Garamond* of *Playfair Display*) voor een redactionele, luxueuze uitstraling. Combineer dit met een superstrak, minimalistisch Sans-Serif lettertype (zoals *Geist Sans* of *Inter*) voor maximale leesbaarheid van de verhalende teksten.
+
+### 2. Layout & UI Componenten
+- **Cinematic Hero-sectie:** Een adembenemende, minimalistische introductie met een grote sfeerimpressie (grote achtergrondfoto of video-placeholder), een 'floating' navigatiebalk en een subtiele call-to-action die direct naar de kalender scrollt.
+- **The Feature Bento Grid (Light Skeuomorphism):** Toon de unieke highlights van de villa (de infinity pool, de in-house chef, de wellness, de wijnkelder) in een strak Bento Grid. De vakken moeten een 'tastbaar' gevoel hebben door middel van extreem zachte, natuurlijke schazuwen en vloeiende hover-effecten (`transition-all duration-300`).
+- **Media Gallery:** Een vloeiende, interactieve fotogalerij (lightbox) die de exclusieve kamers en het uitzicht perfect presenteert.
+- **Micro-interacties:** Voeg subtiele, vloeiende transities toe (bijv. met Framer Motion of pure Tailwind transities) bij het openen van menu's, het selecteren van datums en het hoveren over knoppen.
+
+## Instructies voor Code-Generatie
+- Schrijf schone, modulaire code verdeeld over logische componenten (bijv. `BookingCalendar.tsx`, `FeatureGrid.tsx`, `ReservationWizard.tsx`).
+- Zorg dat de website vanaf de basis 100% responsive is en vlekkeloos schaalt op mobiel (waar het Bento-grid en de kalenders intuïtief onder elkaar vallen).
+- Houd strikt rekening met Toegankelijkheid (WCAG-richtlijnen voor contrast en keyboard-navigatie).
+- Genereer direct werkende code, inclusief de benodigde imports en TypeScript-types.
