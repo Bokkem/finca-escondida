@@ -19,7 +19,8 @@ export default function Header() {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(id);
+    if (el) lenis?.scrollTo(el, { immediate: true });
     setMenuOpen(false);
   };
 
