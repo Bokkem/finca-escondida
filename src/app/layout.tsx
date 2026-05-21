@@ -32,7 +32,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Finca Escondida | Exclusive Villa Hire in Ibiza",
     description: "An extraordinary private estate in the hills of northern Ibiza. Seven bedrooms, infinity pool, private chef. Available for exclusive hire.",
-    images: ["/images/hero.webp"],
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Finca Escondida — exclusive luxury villa for hire in the hills of northern Ibiza",
+      },
+    ],
   },
 };
 
