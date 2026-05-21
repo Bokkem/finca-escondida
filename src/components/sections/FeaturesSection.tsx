@@ -32,10 +32,10 @@ export default function FeaturesSection() {
                 "relative overflow-hidden rounded-[20px] group min-h-[280px]",
                 feature.size === "large" && "lg:col-span-2 lg:row-span-2",
               )}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ clipPath: "inset(100% 0 0 0 round 20px)" }}
+              whileInView={{ clipPath: "inset(0% 0% 0% 0% round 20px)" }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: duration.macro, ease: ease.enter, delay: i * stagger.normal }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: i * stagger.loose }}
               style={{ boxShadow: "var(--shadow-card)" }}
               whileHover={{ boxShadow: "var(--shadow-card-hover)", y: -4 }}
               aria-label={feature.title}
