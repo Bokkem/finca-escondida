@@ -82,7 +82,8 @@ export default function GallerySection() {
             <motion.p
               className="text-muted text-sm tracking-[0.3em] uppercase"
               initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: duration.macro, ease: ease.enter, delay: 0.1 }}
             >
               Photography
@@ -97,7 +98,8 @@ export default function GallerySection() {
             <motion.p
               className="text-xs tracking-[0.25em] uppercase text-muted/50 mt-8"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.9, duration: 1 }}
               aria-hidden="true"
             >
@@ -116,7 +118,8 @@ export default function GallerySection() {
               }}
               aria-label={`View photo: ${image.alt}`}
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: duration.macro, ease: ease.enter, delay: 0.2 + i * stagger.normal }}
             >
               <Image
@@ -172,9 +175,9 @@ export default function GallerySection() {
 
         {/* Animated pill dots */}
         <div className="flex justify-center items-center gap-1.5 mt-6 px-6" aria-hidden="true">
-          {galleryImages.map((_, i) => (
+          {galleryImages.map((image, i) => (
             <motion.div
-              key={i}
+              key={image.src}
               className="h-[3px] rounded-full bg-muted"
               animate={{
                 width: i === selectedSlide ? 20 : 4,

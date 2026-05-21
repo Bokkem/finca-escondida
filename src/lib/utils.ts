@@ -31,7 +31,7 @@ export function isDateUnavailable(date: Date, unavailableRanges: { start: Date; 
 }
 
 export function formatPrice(amount: number): string {
-  return new Intl.NumberFormat("en-EU", {
+  return new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "EUR",
     minimumFractionDigits: 0,

@@ -5,19 +5,22 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { useLenis } from "@/components/providers/SmoothScrollProvider";
 
 export default function HeroSection() {
+  const lenis = useLenis();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const scrollToBooking = () => {
-    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById("booking");
+    if (el) lenis?.scrollTo(el, { immediate: true });
   };
 
   return (
-    <section ref={ref} id="hero" className="relative h-[100dvh] min-h-[640px] overflow-hidden" aria-label="Villa introductie">
+    <section ref={ref} id="hero" className="relative h-[100dvh] min-h-[640px] overflow-hidden" aria-label="Villa introduction">
       <motion.div className="absolute inset-0" style={{ y }}>
         <Image
           src="/images/hero.webp"
@@ -70,7 +73,7 @@ export default function HeroSection() {
           <MagneticButton
             onClick={scrollToBooking}
             className="px-10 py-4 border border-cream/60 text-cream text-sm tracking-widest uppercase rounded-full hover:bg-cream hover:text-olive transition-all duration-300 focus-visible:outline-2 focus-visible:outline-cream focus-visible:outline-offset-2"
-            aria-label="Beschikbaarheid controleren en reserveren"
+            aria-label="Check availability and reserve"
           >
             Check Availability
           </MagneticButton>
@@ -84,7 +87,7 @@ export default function HeroSection() {
           <MagneticButton
             onClick={scrollToBooking}
             className="px-10 py-4 text-cream/70 text-sm tracking-widest uppercase hover:text-cream transition-colors duration-300 underline underline-offset-4"
-            aria-label="Neem contact op"
+            aria-label="Get in touch"
           >
             Get in Touch
           </MagneticButton>

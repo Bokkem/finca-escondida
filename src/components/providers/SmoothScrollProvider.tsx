@@ -19,13 +19,17 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     });
     setLenis(l);
 
+    let rafId: number;
     function raf(time: number) {
       l.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    return () => l.destroy();
+    return () => {
+      cancelAnimationFrame(rafId);
+      l.destroy();
+    };
   }, []);
 
   return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;

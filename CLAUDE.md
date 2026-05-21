@@ -1,44 +1,47 @@
-# CLAUDE.md - Luxe Villa Website
+# CLAUDE.md - Finca Escondida
 
 ## Project
-Ultra-luxe single-property landingpage/webapp voor verhuur van één exclusieve villa.
+Ultra-luxe villa showcase website voor Rideko Webdesign. Demo om potentiele klanten te laten zien wat er gebouwd kan worden. Geen echte villa, geen echte boeking — alles is mock data.
 Pad: `/home/richard/websites/luxe-villa`
 
 ## Stack
-- Next.js (App Router) + TypeScript
-- Tailwind CSS
-- Supabase (database + realtime kalender)
-- Vercel (hosting via GitHub)
-- Framer Motion (animaties)
+- Next.js 16 (App Router) + TypeScript
+- Tailwind v4 (CSS-first, @theme tokens in globals.css — geen tailwind.config.ts)
+- `motion/react` voor animaties — NOOIT `framer-motion`
+- Lenis smooth scroll
+- Embla Carousel (mobiele gallery)
 - shadcn/ui (UI componenten)
+- Geen backend, geen Supabase, geen Firebase — puur frontend met mock data
 
 ## Design identiteit
-- Achtergrond: off-white/creme `#FAF9F5`
-- Primaire kleur: diep olijfgroen `#2F3E36`
-- Accenten: zand/terracotta tinten
-- Koppen: Cormorant Garamond of Playfair Display (Serif)
-- Body: Geist Sans of Inter (Sans-serif)
-- Sfeer: high-end architectuurmagazine, Resonant Stark + Light Skeuomorphism
+- Achtergrond: `#FAF9F5` (creme)
+- Primair: `#2F3E36` (olijfgroen) — Tailwind: `olive`
+- Accent: `#C8A97E` (goud/zand) — Tailwind: `sand`
+- Koppen: Cormorant Garamond (Serif) via `--font-heading`
+- Body: Geist Sans via `--font-body`
+- Sfeer: editorial luxury, minimalist, light skeuomorphism
 
-## Kernfunctionaliteiten
-1. Realtime beschikbaarheidskalender (Supabase bookings tabel)
-2. Live prijsberekening op basis van datums
-3. Luxe boekingswizard (3 stappen)
-4. Cinematic hero-sectie
-5. Feature Bento Grid met hover-effecten
-6. Media lightbox galerij
+## Technische regels
+- Animaties: altijd `motion/react`, nooit `framer-motion`
+- Nav-links: `lenis?.scrollTo(el, { immediate: true })` — niet `scrollIntoView`
+- Scroll-to-top: `lenis?.scrollTo(0, { immediate: true })`
+- Afbeeldingen: altijd `next/image` met alt-tekst, nooit `<img>`
+- Viewport hoogte: `100dvh`, niet `100vh`
+- Tailwind v4 tokens: `bg-olive`, `text-cream`, `rounded-card` etc. komen uit `@theme` in globals.css
+- Favicon staat in `src/app/favicon.ico` + `src/app/icon.svg` (niet alleen public/)
 
-## Database (Supabase)
-- Tabel `bookings`: id, start_date, end_date, guest_name, guest_email, total_price, status
-- Tabel `settings`: base_price_per_night, high_season_price
+## Copy
+- UK English door de hele site
+- Geen em-dashes of en-dashes
+- aria-labels altijd in het Engels (lang="en")
 
 ## Deploy
 - Altijd via git: `git add .` + `git commit` + `git push origin main`
 - Vercel deployt automatisch via GitHub
 - Git-config: `user.email = Bokkem@users.noreply.github.com` | `user.name = Bokkem`
+- Live: https://finca-escondida.vercel.app
 
 ## Werkwijze
-- NIET meteen bouwen -- eerst bespreken en wachten op Richards akkoord
+- NIET meteen bouwen — eerst bespreken en wachten op Richards akkoord
 - Mobile-first (testen op 375px)
 - A11y verplicht (alt-teksten, semantische HTML, toetsenbordnavigatie)
-- Geen em-dashes of en-dashes in tekst of code

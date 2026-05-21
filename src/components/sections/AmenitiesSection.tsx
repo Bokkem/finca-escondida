@@ -17,7 +17,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function AmenitiesSection() {
   return (
-    <section id="amenities" className="py-24 md:py-36 px-6 bg-cream" aria-label="Voorzieningen en diensten">
+    <section id="amenities" className="py-24 md:py-36 px-6 bg-cream" aria-label="Amenities and services">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="mb-16"

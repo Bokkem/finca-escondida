@@ -18,7 +18,7 @@ export default function Preloader() {
           className="fixed inset-0 z-[1000] bg-cream flex flex-col items-center justify-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 } }}
-          aria-label="Pagina wordt geladen"
+          aria-label="Loading"
           role="status"
         >
           <motion.p

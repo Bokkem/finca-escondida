@@ -6,7 +6,7 @@ import RevealText from "@/components/ui/RevealText";
 
 export default function LocationSection() {
   return (
-    <section id="location" className="py-24 md:py-36 px-6 bg-olive text-cream" aria-label="Locatie">
+    <section id="location" className="py-24 md:py-36 px-6 bg-olive text-cream" aria-label="Location">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

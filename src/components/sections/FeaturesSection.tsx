@@ -9,7 +9,7 @@ import RevealText from "@/components/ui/RevealText";
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="py-24 md:py-36 px-6 bg-cream" aria-label="Villa kenmerken">
+    <section id="features" className="py-24 md:py-36 px-6 bg-cream" aria-label="Villa features">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="mb-16 md:mb-24"
@@ -29,11 +29,11 @@ export default function FeaturesSection() {
             <motion.article
               key={feature.id}
               className={cn(
-                "relative overflow-hidden rounded-[20px] group min-h-[280px]",
+                "relative overflow-hidden rounded-card group min-h-[280px]",
                 feature.size === "large" && "lg:col-span-2 lg:row-span-2",
               )}
-              initial={{ clipPath: "inset(100% 0 0 0 round 20px)" }}
-              whileInView={{ clipPath: "inset(0% 0% 0% 0% round 20px)" }}
+              initial={{ clipPath: "inset(100% 0 0 0 round 1.25rem)" }}
+              whileInView={{ clipPath: "inset(0% 0% 0% 0% round 1.25rem)" }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: i * stagger.loose }}
               style={{ boxShadow: "var(--shadow-card)" }}

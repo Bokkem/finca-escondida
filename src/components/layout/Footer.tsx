@@ -15,7 +15,7 @@ export default function Footer() {
         <button
           onClick={scrollToTop}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-cream"
-          aria-label="Finca Escondida — back to top"
+          aria-label="Finca Escondida, back to top"
         >
           <FeLogo size={28} />
           <span className="font-heading text-lg text-cream/70 tracking-widest">Finca Escondida</span>

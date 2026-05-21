@@ -32,7 +32,7 @@ export default function BackToTop() {
           onClick={scrollToTop}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full flex items-center justify-center focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 overflow-hidden"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-olive flex items-center justify-center focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 overflow-hidden"
           initial={{ opacity: 0, scale: 0.8, y: 16 }}
           animate={{
             opacity: 1,
@@ -44,7 +44,6 @@ export default function BackToTop() {
           }}
           exit={{ opacity: 0, scale: 0.8, y: 16 }}
           transition={{ duration: duration.meso, ease: ease.enter }}
-          style={{ backgroundColor: "#2F3E36" }}
           aria-label="Back to top"
           title="Back to top"
         >

@@ -61,7 +61,7 @@ export default function GalleryLightbox({ images, currentIndex, onClose, onNext,
           transition={{ duration: duration.meso }}
           role="dialog"
           aria-modal="true"
-          aria-label="Foto weergave"
+          aria-label="Photo gallery"
           onClick={onClose}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -91,7 +91,7 @@ export default function GalleryLightbox({ images, currentIndex, onClose, onNext,
           <button
             onClick={onClose}
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 focus-visible:outline-2 focus-visible:outline-white rounded"
-            aria-label="Lightbox sluiten"
+            aria-label="Close gallery"
           >
             <X size={28} />
           </button>
@@ -99,7 +99,7 @@ export default function GalleryLightbox({ images, currentIndex, onClose, onNext,
           <button
             onClick={(e) => { e.stopPropagation(); onPrev(); }}
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 focus-visible:outline-2 focus-visible:outline-white rounded"
-            aria-label="Vorige foto"
+            aria-label="Previous photo"
           >
             <ChevronLeft size={36} />
           </button>
@@ -107,7 +107,7 @@ export default function GalleryLightbox({ images, currentIndex, onClose, onNext,
           <button
             onClick={(e) => { e.stopPropagation(); onNext(); }}
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 focus-visible:outline-2 focus-visible:outline-white rounded"
-            aria-label="Volgende foto"
+            aria-label="Next photo"
           >
             <ChevronRight size={36} />
           </button>

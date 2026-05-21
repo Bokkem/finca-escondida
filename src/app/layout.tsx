@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: "/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Finca Escondida — exclusive luxury villa for hire in the hills of northern Ibiza",
+        alt: "Finca Escondida, exclusive luxury villa for hire in the hills of northern Ibiza",
       },
     ],
   },
