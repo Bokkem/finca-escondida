@@ -53,7 +53,10 @@ Onepager met deze secties (top naar bottom):
 - `src/components/ui/CustomCursor.tsx` — custom cursor (desktop only)
 - `src/components/ui/BackToTop.tsx` — floating back-to-top knop met glow hover
 - `src/components/ui/GalleryLightbox.tsx` — fullscreen lightbox met keyboard + touch swipe nav
+- `src/components/ui/FeLogo.tsx` — FE monogram SVG icoon (olijfgroen, gouden letters), gebruikt in header + footer
+- `src/components/ui/ClipReveal.tsx` — herbruikbaar clip-path reveal component (bottom-up curtain wipe)
 - `public/images/` — 9 WebP afbeeldingen (hero 1920x1080, rest 1200x800)
+- `public/favicon.svg` + `src/app/favicon.ico` + `src/app/icon.svg` — FE monogram favicon (alle formaten)
 
 ## Deploy
 - GitHub: `git@github.com:Bokkem/finca-escondida.git`
@@ -70,5 +73,7 @@ Engels (UK English) — toon: warm, onderkoel, Brits luxe vakantiegevoel
 - Afbeeldingen: altijd `next/image` met `alt` tekst, nooit `<img>`
 - Alle afbeeldingen zijn WebP, conversie via ImageMagick + cwebp (sharp werkt niet op dit systeem)
 - Scroll-to-top: altijd via `lenis?.scrollTo(0, { immediate: true })` — nooit `window.scrollTo` (Lenis onderschept dat)
+- Nav-links: altijd via `lenis?.scrollTo(el, { immediate: true })` — niet `scrollIntoView` (anders race je door de horizontale gallery)
+- Favicon: custom FE-monogram staat in `src/app/favicon.ico` + `src/app/icon.svg` — NIET alleen in `public/`, anders pakt Next.js de default Vercel favicon
 - Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk)
 - `metadataBase` nog niet ingesteld (kleine build-warning) — instellen zodra productiedomein bekend is

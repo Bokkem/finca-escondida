@@ -5,11 +5,11 @@
 - [ ] `metadataBase` instellen in `src/app/layout.tsx` zodra productiedomein bekend is
 - [ ] Echte villa-foto's toevoegen als klant echte beelden aanlevert (nu Unsplash placeholders)
 - [ ] Google Maps of Mapbox embed als alternatief voor OpenStreetMap (betere stijl mogelijk)
-- [ ] **Favicon maken** — minimalistisch "FE" monogram of villa-icoon in olijfgroen, WebP + ICO + apple-touch-icon, toevoegen in `src/app/layout.tsx`
 - [ ] OG-afbeelding (social share preview) toevoegen
 - [ ] Contactgegevens toevoegen (telefoonnummer, e-mailadres villa/beheerder)
 - [ ] Privacybeleid / cookiebeleid pagina (minimaal vereist voor EU)
 - [ ] Echte prijzen en seizoensdata aanpassen indien nodig
+- [ ] living.webp en cellar.webp vervangen door betere Unsplash foto's
 
 ## Awwwards-verbeteringen (prioriteit)
 
@@ -17,9 +17,9 @@
 - [x] **2. Text reveal animaties** — koppen revealen woord voor woord via clip-path
 - [x] **3. Grain / noise texture overlay** — subtiele noise-laag over secties
 - [x] **4. Preloader / intro animatie** — elegante laadanimatie met villanaam
+- [x] **6. Clip-path image reveals** — bento grid cards revealen van onder naar boven (ClipReveal component)
 - [x] **7. Magnetische knoppen** — Reserve-knop trekt lichtjes naar cursor bij hover
 - [ ] **5. Stats sectie met animated counters** — "7 bedrooms · 22m pool · 14 guests" tellen op bij scroll
-- [ ] **6. Clip-path image reveals** — afbeeldingen komen binnen met wipe-animatie i.p.v. fade
 - [ ] **8. Video hero** — loopende ambiante villa-video als hero-achtergrond (zodra beeldmateriaal beschikbaar)
 
 ## Eventuele uitbreidingen (later bespreken)
@@ -53,3 +53,7 @@
 - [x] Responsive (mobile-first, getest op 375px)
 - [x] A11y (WCAG, aria-labels, focus-visible, semantische HTML)
 - [x] Cross-browser fixes (dvh, webkit-backdrop-filter, iOS tap highlight, text-size-adjust)
+- [x] FE monogram icoon in header en footer (FeLogo.tsx)
+- [x] Favicon: favicon.svg + favicon.ico + apple-touch-icon.png (FE monogram)
+- [x] Nav-links via lenis.scrollTo immediate — springt direct naar sectie zonder door gallery te scrollen
+- [x] 6 gallery-afbeeldingen vervangen door Unsplash foto's (exterior, pool, spa, bedroom, kitchen, terrace)
