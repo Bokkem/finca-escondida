@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform, useMotionValue } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
@@ -10,9 +10,20 @@ import { useLenis } from "@/components/providers/SmoothScrollProvider";
 export default function HeroSection() {
   const lenis = useLenis();
   const ref = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const yDesktop = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const yMobile = useMotionValue("0%");
+  const y = isMobile ? yMobile : yDesktop;
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const scrollToBooking = () => {
     const el = document.getElementById("booking");

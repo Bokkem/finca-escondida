@@ -34,7 +34,7 @@ export default function FeaturesSection() {
               )}
               initial={{ clipPath: "inset(100% 0 0 0 round 1.25rem)" }}
               whileInView={{ clipPath: "inset(0% 0% 0% 0% round 1.25rem)" }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: i * stagger.loose }}
               style={{ boxShadow: "var(--shadow-card)" }}
               whileHover={{ boxShadow: "var(--shadow-card-hover)", y: -4 }}
