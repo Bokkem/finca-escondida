@@ -67,6 +67,17 @@ Onepager met deze secties (top naar bottom):
 ## Taal
 Engels (UK English) — toon: warm, onderkoel, Brits luxe vakantiegevoel
 
+## Code kwaliteit
+Code audit uitgevoerd (mei 2026). Alle critical en important issues opgelost:
+- RAF memory leak gefixed in SmoothScrollProvider
+- Alle aria-labels zijn Engels (lang="en")
+- Nav-links gebruiken Lenis door de hele site
+- Focus-visible op alle interactieve elementen
+- Focus trap in mobiel menu
+- Gallery animaties triggeren correct via whileInView
+- Geen dode code, geen ongebruikte imports
+- Design tokens consistent gebruikt (geen hardcoded hexcodes)
+
 ## Belangrijke technische aandachtspunten
 - Tailwind v4: klassen zoals `bg-olive`, `text-cream` etc. komen uit `@theme` in globals.css
 - Motion package: altijd importeren uit `motion/react`, nooit uit `framer-motion`

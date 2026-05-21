@@ -8,6 +8,7 @@
 - [ ] Privacybeleid / cookiebeleid pagina (minimaal vereist voor EU)
 - [ ] Echte prijzen en seizoensdata aanpassen indien nodig
 - [ ] living.webp en cellar.webp vervangen door betere Unsplash foto's
+- [ ] **5. Stats sectie met animated counters** — "7 bedrooms · 22m pool · 14 guests" tellen op bij scroll
 
 ## Awwwards-verbeteringen (prioriteit)
 
@@ -15,9 +16,8 @@
 - [x] **2. Text reveal animaties** — koppen revealen woord voor woord via clip-path
 - [x] **3. Grain / noise texture overlay** — subtiele noise-laag over secties
 - [x] **4. Preloader / intro animatie** — elegante laadanimatie met villanaam
-- [x] **6. Clip-path image reveals** — bento grid cards revealen van onder naar boven (ClipReveal component)
+- [x] **6. Clip-path image reveals** — bento grid cards revealen van onder naar boven
 - [x] **7. Magnetische knoppen** — Reserve-knop trekt lichtjes naar cursor bij hover
-- [ ] **5. Stats sectie met animated counters** — "7 bedrooms · 22m pool · 14 guests" tellen op bij scroll
 - [ ] **8. Video hero** — loopende ambiante villa-video als hero-achtergrond (zodra beeldmateriaal beschikbaar)
 
 ## Eventuele uitbreidingen (later bespreken)
@@ -50,6 +50,7 @@
 - [x] Alle afbeeldingen WebP met alt-teksten
 - [x] OG-afbeelding (1200x630 WebP) voor social sharing — Facebook, LinkedIn etc.
 - [x] `metadataBase` ingesteld op `https://finca-escondida.vercel.app`
+- [x] Code audit uitgevoerd en alle issues gefixed (memory leak, aria-labels, locale, focus trap, dode code, em-dashes, consistentie)
 - [x] Responsive (mobile-first, getest op 375px)
 - [x] A11y (WCAG, aria-labels, focus-visible, semantische HTML)
 - [x] Cross-browser fixes (dvh, webkit-backdrop-filter, iOS tap highlight, text-size-adjust)
