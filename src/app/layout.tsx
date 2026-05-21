@@ -22,6 +22,13 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Finca Escondida | Exclusive Villa Hire in Ibiza",
   description: "Finca Escondida is an extraordinary private estate in the hills of northern Ibiza. Seven bedrooms, a 22-metre infinity pool and a private chef. Available for exclusive hire year-round.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Finca Escondida | Exclusive Villa Hire in Ibiza",
     description: "An extraordinary private estate in the hills of northern Ibiza. Seven bedrooms, infinity pool, private chef. Available for exclusive hire.",

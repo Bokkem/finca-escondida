@@ -1,6 +1,7 @@
 "use client";
 
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
+import FeLogo from "@/components/ui/FeLogo";
 
 export default function Footer() {
   const lenis = useLenis();
@@ -13,10 +14,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
         <button
           onClick={scrollToTop}
-          className="font-heading text-lg text-cream/70 tracking-widest hover:text-cream transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-cream"
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-cream"
           aria-label="Finca Escondida — back to top"
         >
-          Finca Escondida
+          <FeLogo size={28} />
+          <span className="font-heading text-lg text-cream/70 tracking-widest">Finca Escondida</span>
         </button>
 
         <p className="text-xs tracking-widest uppercase">San Carlos, Ibiza, Spain</p>

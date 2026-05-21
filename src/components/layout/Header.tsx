@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
+import FeLogo from "@/components/ui/FeLogo";
 
 export default function Header() {
   const lenis = useLenis();
@@ -37,10 +38,11 @@ export default function Header() {
       >
         <button
           onClick={() => lenis?.scrollTo(0, { immediate: true })}
-          className="font-heading text-xl tracking-widest uppercase text-olive"
+          className="flex items-center gap-3"
           aria-label="Finca Escondida, back to top"
         >
-          Finca Escondida
+          <FeLogo size={30} />
+          <span className="font-heading text-xl tracking-widest uppercase text-olive">Finca Escondida</span>
         </button>
 
         <nav className="hidden md:flex items-center gap-8" aria-label="Hoofdnavigatie">
