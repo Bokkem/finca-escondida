@@ -76,6 +76,8 @@ Code audit uitgevoerd (mei 2026). Alle critical en important issues opgelost:
 - Gallery animaties triggeren correct via whileInView
 - Geen dode code, geen ongebruikte imports
 - Design tokens consistent gebruikt (geen hardcoded hexcodes)
+- FeaturesSection bento kaarten zichtbaar op mobiel (viewport margin verwijderd)
+- HeroSection parallax uitgeschakeld op mobiel (geen scroll-jolt bij eerste swipe)
 
 ## Belangrijke technische aandachtspunten
 - Tailwind v4: klassen zoals `bg-olive`, `text-cream` etc. komen uit `@theme` in globals.css
@@ -88,3 +90,5 @@ Code audit uitgevoerd (mei 2026). Alle critical en important issues opgelost:
 - Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk)
 - `metadataBase` ingesteld op `https://finca-escondida.vercel.app`
 - OG-afbeelding: `public/og-image.webp` (1200x630, screenshot van de site)
+- whileInView viewport margin: GEEN negatieve margin gebruiken in FeaturesSection (kaarten blijven anders verborgen op mobiel)
+- Hero parallax: alleen actief op desktop (>768px) via useMotionValue + matchMedia check in HeroSection
