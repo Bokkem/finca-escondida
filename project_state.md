@@ -54,7 +54,6 @@ Onepager met deze secties (top naar bottom):
 - `src/components/ui/BackToTop.tsx` — floating back-to-top knop met glow hover
 - `src/components/ui/GalleryLightbox.tsx` — fullscreen lightbox met keyboard + touch swipe nav
 - `src/components/ui/FeLogo.tsx` — FE monogram SVG icoon (olijfgroen, gouden letters), gebruikt in header + footer
-- `src/components/ui/ClipReveal.tsx` — herbruikbaar clip-path reveal component (bottom-up curtain wipe)
 - `public/images/` — 9 WebP afbeeldingen (hero 1920x1080, rest 1200x800)
 - `public/favicon.svg` + `src/app/favicon.ico` + `src/app/icon.svg` — FE monogram favicon (alle formaten)
 
