@@ -2,10 +2,8 @@
 
 ## Openstaand
 
-- [ ] `metadataBase` instellen in `src/app/layout.tsx` zodra productiedomein bekend is
 - [ ] Echte villa-foto's toevoegen als klant echte beelden aanlevert (nu Unsplash placeholders)
 - [ ] Google Maps of Mapbox embed als alternatief voor OpenStreetMap (betere stijl mogelijk)
-- [ ] OG-afbeelding (social share preview) toevoegen
 - [ ] Contactgegevens toevoegen (telefoonnummer, e-mailadres villa/beheerder)
 - [ ] Privacybeleid / cookiebeleid pagina (minimaal vereist voor EU)
 - [ ] Echte prijzen en seizoensdata aanpassen indien nodig
@@ -50,6 +48,8 @@
 - [x] UK English copy
 - [x] SEO titel en metabeschrijving
 - [x] Alle afbeeldingen WebP met alt-teksten
+- [x] OG-afbeelding (1200x630 WebP) voor social sharing — Facebook, LinkedIn etc.
+- [x] `metadataBase` ingesteld op `https://finca-escondida.vercel.app`
 - [x] Responsive (mobile-first, getest op 375px)
 - [x] A11y (WCAG, aria-labels, focus-visible, semantische HTML)
 - [x] Cross-browser fixes (dvh, webkit-backdrop-filter, iOS tap highlight, text-size-adjust)

@@ -76,4 +76,5 @@ Engels (UK English) — toon: warm, onderkoel, Brits luxe vakantiegevoel
 - Nav-links: altijd via `lenis?.scrollTo(el, { immediate: true })` — niet `scrollIntoView` (anders race je door de horizontale gallery)
 - Favicon: custom FE-monogram staat in `src/app/favicon.ico` + `src/app/icon.svg` — NIET alleen in `public/`, anders pakt Next.js de default Vercel favicon
 - Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk)
-- `metadataBase` nog niet ingesteld (kleine build-warning) — instellen zodra productiedomein bekend is
+- `metadataBase` ingesteld op `https://finca-escondida.vercel.app`
+- OG-afbeelding: `public/og-image.webp` (1200x630, screenshot van de site)
