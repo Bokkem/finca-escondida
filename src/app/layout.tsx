@@ -20,6 +20,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://finca-escondida.vercel.app"),
   title: "Finca Escondida | Exclusive Villa Hire in Ibiza",
   description: "Finca Escondida is an extraordinary private estate in the hills of northern Ibiza. Seven bedrooms, a 22-metre infinity pool and a private chef. Available for exclusive hire year-round.",
   icons: {
