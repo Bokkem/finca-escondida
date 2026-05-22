@@ -35,9 +35,13 @@ export default function Header() {
   }, [menuOpen, lenis]);
 
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) lenis?.scrollTo(el, { immediate: true });
+    lenis?.start();
+    document.body.style.overflow = "";
     setMenuOpen(false);
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) lenis?.scrollTo(el, { immediate: true });
+    });
   };
 
   useEffect(() => {
