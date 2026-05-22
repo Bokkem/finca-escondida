@@ -20,6 +20,20 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      lenis?.stop();
+      document.body.style.overflow = "hidden";
+    } else {
+      lenis?.start();
+      document.body.style.overflow = "";
+    }
+    return () => {
+      lenis?.start();
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen, lenis]);
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) lenis?.scrollTo(el, { immediate: true });
@@ -138,7 +152,8 @@ export default function Header() {
           <motion.div
             id="mobile-menu"
             ref={menuRef}
-            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center gap-8 touch-none overscroll-none"
+            style={{ height: "var(--hero-height, 100dvh)" }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
