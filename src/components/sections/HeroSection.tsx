@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useLayoutEffect, useState } from "react";
 import { motion, useScroll, useTransform, useMotionValue } from "motion/react";
 import { ease, duration } from "@/lib/motion-tokens";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -11,18 +11,25 @@ export default function HeroSection() {
   const lenis = useLenis();
   const ref = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yDesktop = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const yMobile = useMotionValue("0%");
   const y = isMobile ? yMobile : yDesktop;
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  useEffect(() => {
+  // Runs before paint — prevents the frame where desktop parallax is active on mobile
+  useLayoutEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
     setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  // Lock viewport height on mount to prevent iOS Safari address-bar reflow on first scroll
+  useEffect(() => {
+    document.documentElement.style.setProperty("--hero-height", `${window.innerHeight}px`);
   }, []);
 
   const scrollToBooking = () => {
@@ -31,7 +38,13 @@ export default function HeroSection() {
   };
 
   return (
-    <section ref={ref} id="hero" className="relative h-[100dvh] min-h-[640px] overflow-hidden" aria-label="Villa introduction">
+    <section
+      ref={ref}
+      id="hero"
+      style={{ height: "var(--hero-height, 100dvh)" }}
+      className="relative min-h-[640px] overflow-hidden"
+      aria-label="Villa introduction"
+    >
       <motion.div className="absolute inset-0" style={{ y }}>
         <Image
           src="/images/hero.webp"
