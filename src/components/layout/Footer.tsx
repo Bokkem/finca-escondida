@@ -2,6 +2,13 @@
 
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
 import FeLogo from "@/components/ui/FeLogo";
+import { MessageCircle, Facebook, Instagram } from "lucide-react";
+
+const socials = [
+  { icon: MessageCircle, label: "WhatsApp" },
+  { icon: Facebook,      label: "Facebook" },
+  { icon: Instagram,     label: "Instagram" },
+];
 
 export default function Footer() {
   const lenis = useLenis();
@@ -22,6 +29,21 @@ export default function Footer() {
         </button>
 
         <p className="text-xs tracking-widest uppercase">San Carlos, Ibiza, Spain</p>
+
+        <div className="flex items-center gap-2">
+          {socials.map(({ icon: Icon, label }) => (
+            <a
+              key={label}
+              href="https://www.rideko.nl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="w-9 h-9 rounded-lg border border-[#C8A97E]/40 grid place-items-center text-[#C8A97E]/60 hover:border-[#C8A97E] hover:text-[#C8A97E] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-cream"
+            >
+              <Icon size={16} />
+            </a>
+          ))}
+        </div>
 
         <p className="text-xs text-center md:text-right">
           &copy; {year} Finca Escondida. All rights reserved.{" "}
