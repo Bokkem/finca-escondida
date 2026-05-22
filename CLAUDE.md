@@ -39,7 +39,7 @@ Pad: `/home/richard/websites/luxe-villa`
 - Altijd via git: `git add .` + `git commit` + `git push origin main`
 - Vercel deployt automatisch via GitHub
 - Git-config: `user.email = Bokkem@users.noreply.github.com` | `user.name = Bokkem`
-- Live: https://finca-escondida.vercel.app
+- Live: https://finca.rideko.nl
 
 ## Werkwijze
 - NIET meteen bouwen — eerst bespreken en wachten op Richards akkoord

@@ -49,7 +49,7 @@
 - [x] SEO titel en metabeschrijving
 - [x] Alle afbeeldingen WebP met alt-teksten
 - [x] OG-afbeelding (1200x630 WebP) voor social sharing — Facebook, LinkedIn etc.
-- [x] `metadataBase` ingesteld op `https://finca-escondida.vercel.app`
+- [x] `metadataBase` ingesteld op `https://finca.rideko.nl`
 - [x] Code audit uitgevoerd en alle issues gefixed (memory leak, aria-labels, locale, focus trap, dode code, em-dashes, consistentie)
 - [x] Responsive (mobile-first, getest op 375px)
 - [x] A11y (WCAG, aria-labels, focus-visible, semantische HTML)

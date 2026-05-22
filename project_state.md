@@ -88,7 +88,7 @@ Code audit uitgevoerd (mei 2026). Alle critical en important issues opgelost:
 - Nav-links: altijd via `lenis?.scrollTo(el, { immediate: true })` — niet `scrollIntoView` (anders race je door de horizontale gallery)
 - Favicon: custom FE-monogram staat in `src/app/favicon.ico` + `src/app/icon.svg` — NIET alleen in `public/`, anders pakt Next.js de default Vercel favicon
 - Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk)
-- `metadataBase` ingesteld op `https://finca-escondida.vercel.app`
+- `metadataBase` ingesteld op `https://finca.rideko.nl`
 - OG-afbeelding: `public/og-image.webp` (1200x630, screenshot van de site)
 - whileInView viewport margin: GEEN negatieve margin gebruiken in FeaturesSection (kaarten blijven anders verborgen op mobiel)
 - Hero parallax: alleen actief op desktop (>768px) via useMotionValue + matchMedia check in HeroSection
