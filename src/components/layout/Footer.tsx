@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
 import FeLogo from "@/components/ui/FeLogo";
 import { WhatsAppIcon, FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
@@ -38,18 +39,20 @@ export default function Footer() {
 
         <p className="text-xs tracking-widest uppercase">San Carlos, Ibiza, Spain</p>
 
-        <nav aria-label="Social media" className="flex items-center gap-2">
+        <nav aria-label="Social media" className="flex items-center gap-5">
           {SOCIAL_LINKS.map(({ href, label, Icon }) => (
-            <a
+            <motion.a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="w-9 h-9 rounded-lg border border-[#C8A97E]/40 grid place-items-center text-[#C8A97E]/60 hover:border-[#C8A97E] hover:text-[#C8A97E] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-cream"
+              className="text-cream/30 focus-visible:outline-2 focus-visible:outline-cream"
+              whileHover={{ scale: 1.2, color: "#C8A97E" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              <Icon width={16} height={16} />
-            </a>
+              <Icon width={18} height={18} />
+            </motion.a>
           ))}
         </nav>
 
