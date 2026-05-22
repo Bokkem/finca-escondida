@@ -118,13 +118,17 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      <motion.button
+        onClick={() => {
+          const el = document.getElementById("features");
+          if (el) lenis?.scrollTo(el, { immediate: true });
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-cream"
         style={{ opacity }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: duration.macro }}
-        aria-hidden="true"
+        aria-label="Scroll to next section"
       >
         <span className="text-cream/50 text-xs tracking-widest uppercase">Scroll</span>
         <motion.div
@@ -133,7 +137,7 @@ export default function HeroSection() {
           transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
           style={{ transformOrigin: "top" }}
         />
-      </motion.div>
+      </motion.button>
     </section>
   );
 }
