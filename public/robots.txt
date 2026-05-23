@@ -1,0 +1,7 @@
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://finca.rideko.nl/sitemap.xml
