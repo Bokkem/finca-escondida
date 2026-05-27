@@ -1,16 +1,19 @@
-# Finca Escondida
+# Finca Escondida – Demo Site by Rideko Webdesign
 
-> Luxury Real Estate & High-End Vacation Rental Presentation Platform
+> This is a demonstration website created by Rideko Webdesign (rideko.nl) to showcase what a modern, high-end website can look like for a luxury villa hire business. Finca Escondida is a fictional private estate in Ibiza. The demo serves as an example for businesses in the luxury travel, hospitality and villa rental sector.
 
-## Quick Facts 2026
-- **Type**: Demo showcase — premium villa rental presentation
-- **Target audience**: Luxury travellers, premium property owners, high-end real estate developers
-- **Core features**: Immersive visual storytelling, cinematic parallax hero, premium booking wizard, smooth scroll navigation, elite architectural aesthetics
-- **Tech stack**: Next.js 16 (App Router), Tailwind CSS v4, Motion (motion/react), Lenis smooth scroll, Vercel
-- **Developer**: Rideko Webdesign (https://www.rideko.nl)
-- **Live URL**: https://finca.rideko.nl
+The demo presents a fully functional, visually refined one-page website for an exclusive Ibiza villa. Lightning-fast, mobile-first and built to impress — created with the modern Rideko stack.
 
-Finca Escondida is a high-end showcase website built by Rideko Webdesign to demonstrate what is possible in premium digital real estate presentation. It features a cinematic hero, bento-grid feature layout, fullscreen gallery with lightbox, a three-step booking wizard, and OpenStreetMap location integration. All data is mock — there is no real villa or real booking system.
+Interested in a similar website? Contact Rideko Webdesign at https://www.rideko.nl/contact
 
-## Links
-- [Full Technical & Architectural Specification](/llms-full.txt)
+## About the demo
+
+- [Finca Escondida demo](https://finca.rideko.nl): Full demo page for a fictional luxury villa hire business in San Carlos, Ibiza.
+
+## More Rideko demos
+
+- [All demos](https://www.rideko.nl/demos): Overview of all Rideko demonstration websites by industry.
+
+## More
+
+- [llms-full.txt](https://finca.rideko.nl/llms-full.txt): Full content and technical details of this demo in a single file.

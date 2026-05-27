@@ -54,8 +54,14 @@ Onepager met deze secties (top naar bottom):
 - `src/components/ui/BackToTop.tsx` — floating back-to-top knop met glow hover
 - `src/components/ui/GalleryLightbox.tsx` — fullscreen lightbox met keyboard + touch swipe nav
 - `src/components/ui/FeLogo.tsx` — FE monogram SVG icoon (olijfgroen, gouden letters), gebruikt in header + footer
+- `src/components/ui/SocialIcons.tsx` — typed SVG icon components: WhatsAppIcon, FacebookIcon, InstagramIcon
 - `public/images/` — 9 WebP afbeeldingen (hero 1920x1080, rest 1200x800)
 - `public/favicon.svg` + `src/app/favicon.ico` + `src/app/icon.svg` — FE monogram favicon (alle formaten)
+- `public/robots.txt` — standaard robots.txt (User-agent: * Allow: /, sitemap link)
+- `public/sitemap.xml` — standaard sitemap met de homepage URL
+- `public/llms.txt` — AI/GEO optimalisatie: korte intro over de demo, links naar rideko.nl/contact, rideko.nl/demos en llms-full.txt
+- `public/llms-full.txt` — AI/GEO optimalisatie: volledige demo-beschrijving met tech stack, fictieve villa-details, amenities, doelgroep en Rideko info (bijgewerkt 2026-05-27)
+- `public/ai.txt` — identieke kopie van llms-full.txt voor legacy AI-crawlers
 
 ## Deploy
 - GitHub: `git@github.com:Bokkem/finca-escondida.git`
@@ -77,7 +83,11 @@ Code audit uitgevoerd (mei 2026). Alle critical en important issues opgelost:
 - Geen dode code, geen ongebruikte imports
 - Design tokens consistent gebruikt (geen hardcoded hexcodes)
 - FeaturesSection bento kaarten zichtbaar op mobiel (viewport margin verwijderd)
-- HeroSection parallax uitgeschakeld op mobiel (geen scroll-jolt bij eerste swipe)
+- HeroSection parallax uitgeschakeld op mobiel via useLayoutEffect (geen scroll-jolt bij eerste swipe)
+- Hero hoogte vergrendeld via `--hero-height` CSS-variabele op mount (voorkomt iOS dvh-reflow bij adresbalk)
+- Mobiel menu: Lenis stopt bij open, body overflow vergrendeld, touch-none + overscroll-none op overlay — GEEN expliciete height op overlay, fixed inset-0 is voldoende (expliciete height breekt na scrollen)
+- Mobiel menu nav: Lenis expliciet herstart in scrollTo vóór requestAnimationFrame om race condition te voorkomen
+- Footer: 3 social media buttons (WhatsApp, Facebook, Instagram) — borderless, motion scale + gold hover, link naar rideko.nl
 
 ## Belangrijke technische aandachtspunten
 - Tailwind v4: klassen zoals `bg-olive`, `text-cream` etc. komen uit `@theme` in globals.css
@@ -87,8 +97,9 @@ Code audit uitgevoerd (mei 2026). Alle critical en important issues opgelost:
 - Scroll-to-top: altijd via `lenis?.scrollTo(0, { immediate: true })` — nooit `window.scrollTo` (Lenis onderschept dat)
 - Nav-links: altijd via `lenis?.scrollTo(el, { immediate: true })` — niet `scrollIntoView` (anders race je door de horizontale gallery)
 - Favicon: custom FE-monogram staat in `src/app/favicon.ico` + `src/app/icon.svg` — NIET alleen in `public/`, anders pakt Next.js de default Vercel favicon
-- Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk)
+- Viewport hoogte: gebruik `100dvh` niet `100vh` (iOS Safari adresbalk) — voor de hero zelf: `var(--hero-height, 100dvh)` via inline style, vergrendeld op mount
 - `metadataBase` ingesteld op `https://finca.rideko.nl`
 - OG-afbeelding: `public/og-image.webp` (1200x630, screenshot van de site)
 - whileInView viewport margin: GEEN negatieve margin gebruiken in FeaturesSection (kaarten blijven anders verborgen op mobiel)
-- Hero parallax: alleen actief op desktop (>768px) via useMotionValue + matchMedia check in HeroSection
+- Hero parallax: alleen actief op desktop (>768px) via useMotionValue + matchMedia check in HeroSection — detectie via useLayoutEffect (synchroon vóór eerste paint)
+- Mobiel menu scrollTo: altijd `lenis?.start()` + `document.body.style.overflow = ""` aanroepen vóór `requestAnimationFrame(() => lenis?.scrollTo(...))` — Lenis is gestopt terwijl menu open is

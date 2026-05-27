@@ -1,46 +1,73 @@
-# Finca Escondida — Full Technical & Architectural Specification
+# Finca Escondida – Demo Site by Rideko Webdesign
 
-## Project Overview & Philosophy
+> This is a demonstration website created by Rideko Webdesign (rideko.nl) to showcase what a modern, high-end website can look like for a luxury villa hire business. Finca Escondida is a fictional private estate in Ibiza. The demo serves as an example for businesses in the luxury travel, hospitality and villa rental sector.
 
-Finca Escondida is a luxury villa showcase built by Rideko Webdesign as a demonstration platform for premium real estate and vacation rental presentation. The core philosophy is simple: translate the physical sensation of high-end luxury into a fluid, cinematic digital experience.
+Last updated: 2026-05-27
 
-Every design decision serves that goal. The typography is editorial, the colour palette restrained, and the motion is deliberate and refined — never decorative for its own sake. Visitors should feel the weight and exclusivity of the property before reading a single word of copy.
+Interested in a similar website? Contact Rideko Webdesign at https://www.rideko.nl/contact
 
-The site is a single-page application with clearly defined sections: a cinematic hero, a bento-grid highlights overview, a fullscreen gallery with lightbox, an amenities overview, a three-step booking presentation wizard, and a location map. All content is mock data. There is no backend, no real booking system, and no real property.
+## What is this demo?
 
-## Design System & Motion
+Rideko Webdesign builds demonstration websites for various industries to give potential clients a concrete impression of what is possible. This demo — Finca Escondida — is built for the luxury villa hire and hospitality sector. The site is fully functional, visually polished and performs at the highest level in terms of speed and SEO.
 
-**Colour palette**
-- Background: `#FAF9F5` (cream/off-white)
-- Primary: `#2F3E36` (deep olive green)
-- Accent: `#C8A97E` (sand/gold), `#B5714A` (terracotta)
+The fictional property is an exclusive private estate in the hills of San Carlos, northern Ibiza, available for exclusive hire year-round.
 
-**Typography**
-- Headings: Cormorant Garamond (serif) — editorial, timeless
-- Body: Geist Sans — clean, modern, readable
+## Tech Stack
 
-**Design language**: Editorial minimalism with light skeuomorphism. Bento grid cards in the features section create a spatial, magazine-like hierarchy. Glassmorphism-style blur effects appear in the floating navigation header (scroll-aware backdrop blur), reinforcing depth and layering without visual noise.
+The demo is built with the standard Rideko stack:
 
-**Motion**
-All animations use the `motion/react` package (not `framer-motion`). Transitions are sophisticated and restrained: word-by-word clip-path text reveals, scroll-triggered fade-ins with stagger, and a cinematic parallax effect in the hero (desktop only, disabled on mobile to prevent scroll jolt). A custom magnetic button component adds tactile response to primary call-to-action elements. A grain overlay adds analogue warmth across the entire page. An intro preloader runs on first load.
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+- **Performance:** Sub-second load time, perfect Lighthouse score
 
-Smooth scroll is handled by Lenis, exposed site-wide via a React context (`LenisContext`). All navigation links and scroll-to-top interactions use Lenis directly to prevent race conditions with the horizontal gallery section.
+## Property Details (fictional)
 
-## Performance & Technical Stack
+- **Name:** Finca Escondida
+- **Location:** San Carlos, Ibiza, Spain
+- **Bedrooms:** 7
+- **Capacity:** Up to 14 guests
+- **Pool:** 22-metre infinity pool overlooking the Mediterranean Sea
+- **Minimum stay:** 7 nights
 
-**Framework**: Next.js 16.2.6 with App Router and TypeScript. Server components are used where possible; client components are isolated to interactive sections.
+### Pricing (fictional)
+- Low season: from €1,850 per night
+- High season (June to September): from €2,950 per night
 
-**Styling**: Tailwind CSS v4 in CSS-first mode. There is no `tailwind.config.ts` — all design tokens (`bg-olive`, `text-cream`, `rounded-card`, etc.) are defined via `@theme` in `globals.css`.
+### Getting There (fictional)
+- Ibiza Airport (IBZ): 35 minutes
+- Nearest beach (Cala Mastella): 8 minutes
+- Ibiza Town: 25 minutes
 
-**Images**: All images are WebP format, served via `next/image` for automatic lazy loading, responsive sizing, and format negotiation. Photography is high-resolution (hero at 1920x1080, gallery at 1200x800). Conversion was done using ImageMagick and `cwebp`.
+## Amenities (fictional)
 
-**Hosting**: Vercel, with automatic deployment triggered by pushes to the `main` branch on GitHub. The live URL is `https://finca.rideko.nl`.
+- 22-metre infinity pool above the Mediterranean
+- Private chef with bespoke menus using local Ibiza produce
+- Private spa with hammam, sauna and massage studio
+- Two terraces for al fresco dining and sunset aperitifs
+- Wine cellar with over 400 bottles and on-call sommelier
+- High-speed fibre Wi-Fi throughout the property
+- Chauffeur service for airport transfers and excursions
+- Private yacht available on request
+- 24/7 discreet security
+- Personal concierge service
+- Private cinema and whole-property sound system
 
-**Accessibility**: All images include descriptive `alt` text. Interactive elements have visible focus states. The mobile menu includes a focus trap. All `aria-label` attributes are in English (`lang="en"`).
+## Suitable as an example for
 
-**No backend**: The site is entirely static frontend. There is no database, no authentication, no real booking logic, and no third-party booking API. The three-step booking wizard is a pure UI demonstration.
+Businesses in the following sectors can use this demo as inspiration:
 
-## Developer
+- Luxury villa hire and rental companies
+- Boutique hotels and private estates
+- Holiday home agencies
+- Luxury travel and concierge services
+- High-end resort and retreat websites
 
-Built and maintained by Rideko Webdesign.
-Website: https://www.rideko.nl
+## About Rideko Webdesign
+
+Rideko Webdesign builds bespoke websites for entrepreneurs in Castricum and the wider region. More demos and information at https://www.rideko.nl
+
+- Website: https://www.rideko.nl
+- Contact: https://www.rideko.nl/contact
+- All demos: https://www.rideko.nl/demos
