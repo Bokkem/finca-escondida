@@ -1,0 +1,16 @@
+# Finca Escondida
+
+> Luxury Real Estate & High-End Vacation Rental Presentation Platform
+
+## Quick Facts 2026
+- **Type**: Demo showcase — premium villa rental presentation
+- **Target audience**: Luxury travellers, premium property owners, high-end real estate developers
+- **Core features**: Immersive visual storytelling, cinematic parallax hero, premium booking wizard, smooth scroll navigation, elite architectural aesthetics
+- **Tech stack**: Next.js 16 (App Router), Tailwind CSS v4, Motion (motion/react), Lenis smooth scroll, Vercel
+- **Developer**: Rideko Webdesign (https://www.rideko.nl)
+- **Live URL**: https://finca.rideko.nl
+
+Finca Escondida is a high-end showcase website built by Rideko Webdesign to demonstrate what is possible in premium digital real estate presentation. It features a cinematic hero, bento-grid feature layout, fullscreen gallery with lightbox, a three-step booking wizard, and OpenStreetMap location integration. All data is mock — there is no real villa or real booking system.
+
+## Links
+- [Full Technical & Architectural Specification](/llms-full.txt)

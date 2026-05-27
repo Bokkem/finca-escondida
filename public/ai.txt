@@ -1,0 +1,46 @@
+# Finca Escondida — Full Technical & Architectural Specification
+
+## Project Overview & Philosophy
+
+Finca Escondida is a luxury villa showcase built by Rideko Webdesign as a demonstration platform for premium real estate and vacation rental presentation. The core philosophy is simple: translate the physical sensation of high-end luxury into a fluid, cinematic digital experience.
+
+Every design decision serves that goal. The typography is editorial, the colour palette restrained, and the motion is deliberate and refined — never decorative for its own sake. Visitors should feel the weight and exclusivity of the property before reading a single word of copy.
+
+The site is a single-page application with clearly defined sections: a cinematic hero, a bento-grid highlights overview, a fullscreen gallery with lightbox, an amenities overview, a three-step booking presentation wizard, and a location map. All content is mock data. There is no backend, no real booking system, and no real property.
+
+## Design System & Motion
+
+**Colour palette**
+- Background: `#FAF9F5` (cream/off-white)
+- Primary: `#2F3E36` (deep olive green)
+- Accent: `#C8A97E` (sand/gold), `#B5714A` (terracotta)
+
+**Typography**
+- Headings: Cormorant Garamond (serif) — editorial, timeless
+- Body: Geist Sans — clean, modern, readable
+
+**Design language**: Editorial minimalism with light skeuomorphism. Bento grid cards in the features section create a spatial, magazine-like hierarchy. Glassmorphism-style blur effects appear in the floating navigation header (scroll-aware backdrop blur), reinforcing depth and layering without visual noise.
+
+**Motion**
+All animations use the `motion/react` package (not `framer-motion`). Transitions are sophisticated and restrained: word-by-word clip-path text reveals, scroll-triggered fade-ins with stagger, and a cinematic parallax effect in the hero (desktop only, disabled on mobile to prevent scroll jolt). A custom magnetic button component adds tactile response to primary call-to-action elements. A grain overlay adds analogue warmth across the entire page. An intro preloader runs on first load.
+
+Smooth scroll is handled by Lenis, exposed site-wide via a React context (`LenisContext`). All navigation links and scroll-to-top interactions use Lenis directly to prevent race conditions with the horizontal gallery section.
+
+## Performance & Technical Stack
+
+**Framework**: Next.js 16.2.6 with App Router and TypeScript. Server components are used where possible; client components are isolated to interactive sections.
+
+**Styling**: Tailwind CSS v4 in CSS-first mode. There is no `tailwind.config.ts` — all design tokens (`bg-olive`, `text-cream`, `rounded-card`, etc.) are defined via `@theme` in `globals.css`.
+
+**Images**: All images are WebP format, served via `next/image` for automatic lazy loading, responsive sizing, and format negotiation. Photography is high-resolution (hero at 1920x1080, gallery at 1200x800). Conversion was done using ImageMagick and `cwebp`.
+
+**Hosting**: Vercel, with automatic deployment triggered by pushes to the `main` branch on GitHub. The live URL is `https://finca.rideko.nl`.
+
+**Accessibility**: All images include descriptive `alt` text. Interactive elements have visible focus states. The mobile menu includes a focus trap. All `aria-label` attributes are in English (`lang="en"`).
+
+**No backend**: The site is entirely static frontend. There is no database, no authentication, no real booking logic, and no third-party booking API. The three-step booking wizard is a pure UI demonstration.
+
+## Developer
+
+Built and maintained by Rideko Webdesign.
+Website: https://www.rideko.nl
